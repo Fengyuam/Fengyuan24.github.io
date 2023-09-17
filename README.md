@@ -1,2 +1,2 @@
 # Fengyuan24.github.io
-![](https://www.duitang.com/blog/?id=1417519705)
+![](https://c-ssl.duitang.com/uploads/blog/202208/07/20220807102831_e8574.jpeg)
