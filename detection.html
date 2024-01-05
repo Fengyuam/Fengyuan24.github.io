@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+</head>
+<body>
+<div id="test"></div>
+<script>
+txt = "<p>浏览器代号: " + navigator.appCodeName + "</p>";
+txt+= "<p>浏览器名称: " + navigator.appName + "</p>";
+txt+= "<p>浏览器版本: " + navigator.appVersion + "</p>";
+txt+= "<p>启用Cookies: " + navigator.cookieEnabled + "</p>";
+txt+= "<p>硬件平台: " + navigator.platform + "</p>";
+txt+= "<p>用户代理: " + navigator.userAgent + "</p>";
+txt+= "<p>用户代理语言: " + navigator.systemLanguage + "</p>";
+document.getElementById("test").innerHTML=txt;
+</script>
+</body>
+</html>
+
+<script type="text/javascript"> 
+ // borwserRedirect
+ (function browserRedirect(){
+  var sUserAgent = navigator.userAgent.toLowerCase();
+  var bIsIpad = sUserAgent.match(/ipad/i) == 'ipad';
+  var bIsIphone = sUserAgent.match(/iphone os/i) == 'iphone os';
+  var bIsMidp = sUserAgent.match(/midp/i) == 'midp';
+  var bIsUc7 = sUserAgent.match(/rv:1.2.3.4/i) == 'rv:1.2.3.4';
+  var bIsUc = sUserAgent.match(/ucweb/i) == 'web';
+  var bIsCE = sUserAgent.match(/windows ce/i) == 'windows ce';
+  var bIsWM = sUserAgent.match(/windows mobile/i) == 'windows mobile';
+  var bIsAndroid = sUserAgent.match(/android/i) == 'android';
+  if(bIsIpad || bIsIphone || bIsMidp || bIsUc7 || bIsUc || bIsCE || bIsWM || bIsAndroid ){
+  window.location.href = 'lite.kaosanlite.asia/mobile.html';
+  }
+ })();
+ </script>
+<script type="text/javascript"> 
+<!-- 
+
+    //平台、设备和操作系统 
+  var system = { 
+   win: false , 
+   mac: false, 
+   xll: false, 
+   ipad:false
+  }; 
+  //检测平台 
+  var p = navigator.platform; 
+  system.win = p.indexOf("Win") == 0; 
+  system.mac = p.indexOf("Mac") == 0; 
+  system.x11 = (p == "X11") || (p.indexOf("Linux") == 0); 
+  system.ipad = (navigator.userAgent.match(/iPad/i) != null)?true:false; 
+  //跳转语句，如果是手机访问就自动跳转到wap.baidu.com页面 
+  if (system.win || system.mac || system.xll||system.ipad) { 
+     //  something.... 
+
+  } else { 
+   window.location.href = "lite.kaosanlite.asia/index.html"; 
+  } 
+--> 
+</script>
