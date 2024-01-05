@@ -1,6 +1,6 @@
-# 欢迎来到 Fengyuan24 网站
+# 欢迎来到 Kaosan 网站
 
-这个项目是 Fengyuan24 网站的源代码仓库。Fengyuan24 网站是一个基于基本HTML构建的个人网站，它托管在 GitHub Pages 上。
+这个项目是 Kaosan 网站的源代码仓库。Fengyuan24 网站是一个基于基本HTML构建的个人网站，它托管在 GitHub Pages 上。
 
 ## 仓库内容
 
@@ -13,9 +13,9 @@
 
 ## 网站特点
 
-- **简单直观**：Fengyuan24 网站采用了基本的HTML和CSS，使其易于阅读和导航。
-- **技术资源**：网站上分享了有关编程、Web开发和技术的文章和资源。
-- **博客和教程**：您可以在网站上找到各种有趣的博客文章和教程。
+- **简单直观**：Kaosan 网站采用了简陋的HTML和CSS，使其易于阅读和导航。
+- **技术资源**：网站上分享了无关编程、Web开发和技术的文章和资源。
+- **博客和教程**：您可以在网站上找到各种没有趣的博客文章和教程。
 
 ## 使用方法
 
@@ -30,6 +30,6 @@
 
 ## 联系
 
-如果您想联系我或获取更多信息，请访问我的 GitHub 页面：[Fengyuan24 GitHub](https://github.com/Fengyuam)。
+如果您想联系我或获取更多信息，请访问我的 GitHub 页面：[Kaosan GitHub](https://github.com/Fengyuam)。
 
-感谢您访问 Fengyuan24 的小网站！
+感谢您访问 Kaosan 的电子废物网站！
