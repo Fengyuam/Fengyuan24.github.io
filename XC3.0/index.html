@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/layui/css/layui.css"/>
+		<script src="js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="css/layui/lay/dest/layui.all.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<style type="text/css">
+	*{margin:0;padding:0;list-style-type:none;}
+	a,img{border:0;}
+	body{
+		background: #000;
+		color: #DDD;
+		font-family: 'Helvetica', 'Lucida Grande', 'Arial', sans-serif;
+	}
+	.border,.rain{
+		width: 320px;
+	}
+	
+	.rain{
+		 padding: 10px 12px 12px 10px;
+		 -moz-box-shadow: 10px 10px 10px rgba(0,0,0,1) inset, -9px -9px 8px rgba(0,0,0,1) inset;
+		 -webkit-box-shadow: 8px 8px 8px rgba(0,0,0,1) inset, -9px -9px 8px rgba(0,0,0,1) inset;
+		 box-shadow: 8px 8px 8px rgba(0,0,0,1) inset, -9px -9px 8px rgba(0,0,0,1) inset;
+		 margin: 100px auto;
+	}
+	
+	.border{
+		padding: 1px;
+		-moz-border-radius: 5px;
+		-webkit-border-radius: 5px;
+		border-radius: 5px;
+	}
+	
+	.border,
+	.rain,
+	.border.start,
+	.rain.start{
+		background-repeat: repeat-x, repeat-x, repeat-x, repeat-x;
+		background-position: 0 0, 0 0, 0 0, 0 0;
+	   
+		background-image: -moz-linear-gradient(left, #09BA5E 0%, #00C7CE 15%, #3472CF 26%, #00C7CE 48%, #0CCF91 91%, #09BA5E 100%);
+	   
+		background-image: -webkit-gradient(linear, left top, right top, color-stop(1%,rgba(0,0,0,.3)), color-stop(23%,rgba(0,0,0,.1)), color-stop(40%,rgba(255,231,87,.1)), color-stop(61%,rgba(255,231,87,.2)), color-stop(70%,rgba(255,231,87,.1)), color-stop(80%,rgba(0,0,0,.1)), color-stop(100%,rgba(0,0,0,.25)));
+	   
+		background-color: #39f;
+	   
+		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00BA1B', endColorstr='#00BA1B',GradientType=1 );
+	}
+	 
+	
+	.border.end,
+	.rain.end{
+		-moz-transition-property: background-position;  
+		-moz-transition-duration: 30s;
+		-moz-transition-timing-function: linear;
+		-webkit-transition-property: background-position;  
+		-webkit-transition-duration: 30s;  
+		-webkit-transition-timing-function: linear;
+		-o-transition-property: background-position;  
+		-o-transition-duration: 30s;  
+		-o-transition-timing-function: linear;
+		transition-property: background-position;  
+		transition-duration: 30s;  
+		transition-timing-function: linear;
+		background-position: -5400px 0, -4600px 0, -3800px 0, -3000px 0;    
+	}
+	 
+	
+	@-webkit-keyframes colors {
+		0% {background-color: #39f;}
+		15% {background-color: #F246C9;}
+		30% {background-color: #4453F2;}
+		45% {background-color: #44F262;}
+		60% {background-color: #F257D4;}
+		75% {background-color: #EDF255;}
+		90% {background-color: #F20006;}
+		100% {background-color: #39f;}
+	}
+	.border,.rain{
+		-webkit-animation-direction: normal;
+		-webkit-animation-duration: 20s;
+		-webkit-animation-iteration-count: infinite;
+		-webkit-animation-name: colors;
+		-webkit-animation-timing-function: ease;
+	}
+	 
+	
+	.border.unfocus{
+		background: #333 !important;    
+		 -moz-box-shadow: 0px 0px 15px rgba(255,255,255,.2);
+		 -webkit-box-shadow: 0px 0px 15px rgba(255,255,255,.2);
+		 box-shadow: 0px 0px 15px rgba(255,255,255,.2);
+		 -webkit-animation-name: none;
+	}
+	.rain.unfocus{
+		background: #000 !important;    
+		-webkit-animation-name: none;
+	}
+	 
+	
+	form{
+		background: #212121;
+		-moz-border-radius: 5px;
+		-webkit-border-radius: 5px;
+		border-radius: 5px;
+		height:220px;
+		width: 100%;
+		background: -moz-radial-gradient(50% 46% 90deg,circle closest-corner, #242424, #090909);
+		background: -webkit-gradient(radial, 50% 50%, 0, 50% 50%, 150, from(#242424), to(#090909));
+	}
+	form label{
+		display: block;
+		padding: 10px 10px 5px 15px;
+		font-size: 11px;
+		color: #777;
+	}
+	form input{
+		display: block;
+		margin: 5px 10px 10px 15px;
+		width: 85%;
+		background: #111;
+		-moz-box-shadow: 0px 0px 4px #000 inset;
+		-webkit-box-shadow: 0px 0px 4px #000 inset;
+		box-shadow: 0px 0px 4px #000 inset;
+		outline: 1px solid #333;
+		border: 1px solid #000;
+		padding: 5px;
+		color: #444;
+		font-size: 16px;
+	}
+	form input:focus{
+		outline: 1px solid #555;
+		color: #FFF;
+	}
+	input[type="button"]{
+		color: #999;
+		padding: 5px 10px;
+		border: 1px solid #000;
+		font-weight: lighter;
+		-moz-border-radius: 15px;
+		-webkit-border-radius: 15px;
+		border-radius: 15px;
+		background: #45484d;
+		background: -moz-linear-gradient(top, #222 0%, #111 100%);
+		background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#222), color-stop(100%,#111));
+		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#22222', endColorstr='#11111',GradientType=0 );
+		-moz-box-shadow: 0px 1px 1px #000, 0px 1px 0px rgba(255,255,255,.3) inset;
+		-webkit-box-shadow: 0px 1px 1px #000, 0px 1px 0px rgba(255,255,255,.3) inset;
+		box-shadow: 0px 1px 1px #000,0px 1px 0px rgba(255,255,255,.3) inset;
+		text-shadow: 0 1px 1px #000;
+		outline: none;
+		width:80px;
+		margin-top:20px;
+		float: left;
+	}
+	</style>
+	<body>
+		<div class="rain">
+		    <div class="border start">
+		        <form>
+		            <label for="text">苹果手机序列号查询</label>
+		            <input name="text" type="text" placeholder="序列号" id="checkapple"/>
+		            <input type="button" value="查询" onclick="checkappleId()"/>
+					<input type="button" value="取消" onclick="reload()"/>
+					<input type="button" value="苹果" onclick="apple_info()"/>
+		        </form>
+		    </div>
+		</div>
+		<!--<input type="text" name="" id="checkapple" value="" />
+		<input type="button" name="" id="" value="点击查询" onclick="checkappleId()"/>-->
+	</body>
+	<script type="text/javascript">
+		$(function(){
+			var $form_inputs =   $('form input');
+			var $rainbow_and_border = $('.rain, .border');
+			
+			$form_inputs.bind('focus', function(){
+				$rainbow_and_border.addClass('end').removeClass('unfocus start');
+			});
+			$form_inputs.bind('blur', function(){
+				$rainbow_and_border.addClass('unfocus start').removeClass('end');
+			});
+			$form_inputs.first().delay(800).queue(function(){
+				$(this).focus();
+			});
+		});
+			var address;//生产地
+			var years;//生产年份
+			var dates;//生产日期
+		function checkappleId(){
+			/* 截取到第一位字符，用来判断的是生产地址 */
+			var ID = $("#checkapple").val();
+			var apple_adress = ID.substr(0,1); //截取的是第一位的字符串，然后截取的长度是一位
+			/* 截取到第四位的字符，用来判断的是生产年份 */
+			var Year = ID.substr(3,1);
+			/* 截取到第五位的字符，用来判断生产日期 */
+			var Dateflag = ID.substr(4,1);//截取到第五位
+			/* 先判断是不是正确的是序列号 */
+			if(ID.length != 12){
+				layer.msg("序列号有误！请核对对后重新查询");
+			}
+			else{
+				if(apple_adress == 'C'){
+					address = '深圳';
+				}else if(apple_adress == 'D'){
+					address = '成都'
+				}else if(apple_adress == 'F'){
+					address = '郑州'
+				}else{
+					layer.msg("序列号有误！请核对对后重新查询");
+					return false;
+				} 
+				if(Year == 'M'){
+					years = '2014上半年';
+					check_before(Dateflag);
+				}else if(Year == 'N'){
+					years = '2014下半年';
+					check_after(Dateflag);
+				}else if(Year == 'P'){
+					years = '2015上半年';
+					check_before(Dateflag);
+				}else if(Year == 'Q'){
+					years = '2015下半年';
+					check_after(Dateflag);
+				}else if(Year == 'R'){
+					years = '2016上半年';
+					check_before(Dateflag);
+				}else if(Year == 'S'){
+					years = '2016下半年';
+					check_after(Dateflag);
+				}else if(Year == 'T'){
+					years = '2017上半年';
+					check_before(Dateflag);
+				}else if(Year == 'V'){
+					years = '2017下半年';
+					check_after(Dateflag);
+				}else if(Year == 'W'){
+					years = '2018上半年';
+					check_before(Dateflag);
+				}else if(Year == 'X'){
+					years = '2018下半年';
+					check_after(Dateflag);
+				}else if(Year == 'Y'){
+					years = '2019上半年';
+					check_before(Dateflag);
+				}else if(Year == 'Z'){
+					years = '2019下半年';
+					check_after(Dateflag);
+				}else{
+					layer.msg("序列号有误！请核对对后重新查询");
+					return false;
+				}
+				console.log("年份是："+years);
+				console.log("日期是："+dates);
+				layer.open({    
+								  type: 1,
+								  title:'查询结果',
+								  skin: 'layui-layer-rim', //加上边框
+								  area: ['600px', '400px'], //宽高
+								  btn:['关闭'],
+								  content: '您的序列号是：'+ID+'<br/>'+
+								           '该是手机生产地是：'+address+'<br/>'+
+										   '该是手机生产年份是：'+years+'<br/>'+
+										   '该是手机生产日期是：'+dates+'<br/>'+
+										   '提示：如果您查询的激活日期早于生产日期，说明您的手机是官换机！',
+								});
+			}
+		}
+		  /* 判断的是每一年的下半年的日期 */
+		   function check_before(Dateflag){
+			   if(Dateflag == '1'){
+			   	dates = '1月1日-1月7日';
+			   }else if(Dateflag == '2'){
+			   	dates = '1月8日-1月14日';
+			   }else if(Dateflag == '3'){
+			   	dates = '1月15日-1月21日';
+			   }else if(Dateflag == '4'){
+			   	dates = '1月22日-1月28日';
+			   }else if(Dateflag == '5'){
+			   	dates = '1月29日-2月4日';
+			   }else if(Dateflag == '6'){
+			   	dates = '2月5日-2月11日';
+			   }else if(Dateflag == '7'){
+			   	dates = '2月12日-2月18日';
+			   }else if(Dateflag == '8'){
+			   	dates = '2月19日-2月25日';
+			   }else if(Dateflag == '9'){
+			   	dates = '2月26日-3月1日';
+			   }else if(Dateflag == 'C'){
+			   	dates = '3月2日-3月8日';
+			   }else if(Dateflag == 'D'){
+			   	dates = '3月9日-3月15日';
+			   }else if(Dateflag == 'F'){
+			   	dates = '3月16日-3月22日';
+			   }else if(Dateflag == 'G'){
+			   	dates = '3月23日-3月29日';
+			   }else if(Dateflag == 'H'){
+			   	dates = '4月30日-4月6日';
+			   }else if(Dateflag == 'J'){
+			   	dates = '4月7日-4月13日';
+			   }else if(Dateflag == 'K'){
+			   	dates = '4月14日-4月20日';
+			   }else if(Dateflag == 'L'){
+			   	dates = '4月21日-4月27日';
+			   }else if(Dateflag == 'M'){
+			   	dates = '4月28日-5月3日';
+			   }else if(Dateflag == 'N'){
+			   	dates = '5月4日-5月10日';
+			   }else if(Dateflag == 'P'){
+			   	dates = '5月11日-5月17日';
+			   }else if(Dateflag == 'Q'){
+			   	dates = '5月18日-5月24日';
+			   }else if(Dateflag == 'R'){
+			   	dates = '5月25日-6月1日';
+			   }else if(Dateflag == 'T'){
+			   	dates = '6月2日-6月8日';
+			   }else if(Dateflag == 'V'){
+			   	dates = '6月9日-6月15日';
+			   }else if(Dateflag == 'W'){
+			   	dates = '6月16日-6月22日';
+			   }else if(Dateflag == 'X'){
+			   	dates = '6月23日-6月29日';
+			   }else if(Dateflag == 'Y'){
+			   	dates = '6月30日';
+			   }else{
+			   	layer.msg("序列号有误！请核对对后重新查询");
+			   	return false;
+			   }
+		   }
+		/* 判断的是下半年具体日期 */
+		  function check_after(Dateflag){
+			  if(Dateflag == '1'){
+					dates = '7月1日-7月7日';
+				}else if(Dateflag == '2'){
+					dates = '7月8日-7月14日';
+				}else if(Dateflag == '3'){
+					dates = '7月15日-7月21日';
+				}else if(Dateflag == '4'){
+					dates = '7月22日-7月28日';
+				}else if(Dateflag == '5'){
+					dates = '7月29日-8月4日';
+				}else if(Dateflag == '6'){
+					dates = '8月5日-8月11日';
+				}else if(Dateflag == '7'){
+					dates = '8月12日-8月18日';
+				}else if(Dateflag == '8'){
+					dates = '8月19日-8月25日';
+				}else if(Dateflag == '9'){
+					dates = '8月26日-9月1日';
+				}else if(Dateflag == 'C'){
+					dates = '9月2日-9月8日';
+				}else if(Dateflag == 'D'){
+					dates = '9月9日-9月15日';
+				}else if(Dateflag == 'F'){
+					dates = '9月16日-9月22日';
+				}else if(Dateflag == 'G'){
+					dates = '9月23日-9月29日';
+				}else if(Dateflag == 'H'){
+					dates = '9月30日-10月6日';
+				}else if(Dateflag == 'J'){
+					dates = '10月7日-10月13日';
+				}else if(Dateflag == 'K'){
+					dates = '10月14日-10月20日';
+				}else if(Dateflag == 'L'){
+					dates = '10月21日-10月27日';
+				}else if(Dateflag == 'M'){
+					dates = '10月28日-11月3日';
+				}else if(Dateflag == 'N'){
+					dates = '11月4日-11月10日';
+				}else if(Dateflag == 'P'){
+					dates = '11月11日-11月17日';
+				}else if(Dateflag == 'Q'){
+					dates = '11月18日-11月24日';
+				}else if(Dateflag == 'R'){
+					dates = '11月25日-12月1日';
+				}else if(Dateflag == 'T'){
+					dates = '12月2日-12月8日';
+				}else if(Dateflag == 'V'){
+					dates = '12月9日-12月15日';
+				}else if(Dateflag == 'W'){
+					dates = '12月16日-12月22日';
+				}else if(Dateflag == 'X'){
+					dates = '12月23日-12月29日';
+				}else if(Dateflag == 'Y'){
+					dates = '12月30日-12月31日';
+				}else{
+					layer.msg("序列号有误！请核对对后重新查询");
+					return false;
+				}
+		  }
+		  /*苹果的全系列产品 */
+		  function apple_info(){
+			layer.open({    
+							type: 1,
+							title:'苹果全系类产品',
+							skin: 'layui-layer-rim', //加上边框
+							area: ['600px', '400px'], //宽高
+							btn:['关闭'],
+							content:'型号：IPHONE第一代，发布日期：2007年1月9日<hr><br/>'+
+									'型号：3G，发布日期：2008年06月10日<hr><br/>'+
+									'型号：3GS，发布日期：2009年6月9日<hr><br/>'+
+									'型号：4，发布日期：2010年6月8日<hr><br/>'+
+									'型号：4S，发布日期：2011年10月04日<hr><br/>'+
+									'型号：5，发布日期：2012年9月13日<hr><br/>'+
+									'型号：5C，发布日期：2013年9月10日<hr><br/>'+
+									'型号：5S，发布日期：2013年9月10日<hr><br/>'+
+									'型号：6，发布日期：2014年9月10日<hr><br/>'+
+									'型号：6P，发布日期：2014年9月10日<hr><br/>'+
+									'型号：6S，发布日期：2015年9月10日<hr><br/>'+
+									'型号：6SP，发布日期：2015年9月10日<hr><br/>'+
+									'型号：7，发布日期：2016年9月8日<hr><br/>'+
+									'型号：7P，发布日期：2016年9月8日<hr><br/>'+
+									'型号：8，发布日期：2017年9月13日<hr><br/>'+
+									'型号：8P，发布日期：2017年9月13日<hr><br/>'+
+									'型号：X，发布日期：2017年9月13日<hr><br/>'+
+									'官方网址：<a href="https://www.apple.com/cn//?afid=p238%7C1dxLB2Qwz-dc_mtid_18707vxu38484_pcrid_16834665582_&cid=aos-cn-kwba-brand" target="_blank">点击进入<a/>',
+							});
+			} 
+			function reload(){
+				location.reload();
+			}
+	</script>
+</html>
