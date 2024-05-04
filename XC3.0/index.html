@@ -165,7 +165,7 @@
 		            <input name="text" type="text" placeholder="序列号" id="checkapple"/>
 		            <input type="button" value="查询" onclick="checkappleId()"/>
 					<input type="button" value="取消" onclick="reload()"/>
-					<input type="button" value="苹果" onclick="apple_info()"/>
+					
 		        </form>
 		    </div>
 		</div>
@@ -203,191 +203,193 @@
 				layer.msg("序列号有误！请核对对后重新查询");
 			}
 			else{
-				if(apple_adress == 'C'){
-					address = '深圳';
-				}else if(apple_adress == 'D'){
-					address = '成都'
-				}else if(apple_adress == 'F'){
-					address = '郑州'
+				if(apple_adress == 'A'){
+					address = '璃虹港市';
+				}else if(apple_adress == 'B'){
+					address = '苏市'
+				}else if(apple_adress == 'C'){
+					address = '凛冬特区'
+				
+					
 				}else{
 					layer.msg("序列号有误！请核对对后重新查询");
 					return false;
 				} 
-				if(Year == 'M'){
-					years = '2014上半年';
+				if(Year == 'D'){
+					years = '风祭区';
 					check_before(Dateflag);
+				}else if(Year == 'E'){
+					years = '江东区';
+					check_after(Dateflag);
+				}else if(Year == 'F'){
+					years = '山南自治区';
+					check_before(Dateflag);
+				}else if(Year == 'G'){
+					years = '花园区';
+					check_after(Dateflag);
+				}else if(Year == 'H'){
+					years = '滨海区';
+					check_before(Dateflag);
+				}else if(Year == 'I'){
+					years = '行云区';
+					check_after(Dateflag);
+				}else if(Year == 'J'){
+					years = '老城区';
+					check_before(Dateflag);
+				}else if(Year == 'K'){
+					years = '南新区';
+					check_after(Dateflag);
+				}else if(Year == 'L'){
+					years = '修仙区';
+					check_before(Dateflag);
+				}else if(Year == 'M'){
+					years = '九州港集中工业区';
+					check_after(Dateflag);
 				}else if(Year == 'N'){
-					years = '2014下半年';
-					check_after(Dateflag);
-				}else if(Year == 'P'){
-					years = '2015上半年';
+					years = '某自治区';
 					check_before(Dateflag);
-				}else if(Year == 'Q'){
-					years = '2015下半年';
-					check_after(Dateflag);
-				}else if(Year == 'R'){
-					years = '2016上半年';
-					check_before(Dateflag);
-				}else if(Year == 'S'){
-					years = '2016下半年';
-					check_after(Dateflag);
-				}else if(Year == 'T'){
-					years = '2017上半年';
-					check_before(Dateflag);
-				}else if(Year == 'V'){
-					years = '2017下半年';
-					check_after(Dateflag);
-				}else if(Year == 'W'){
-					years = '2018上半年';
-					check_before(Dateflag);
-				}else if(Year == 'X'){
-					years = '2018下半年';
-					check_after(Dateflag);
-				}else if(Year == 'Y'){
-					years = '2019上半年';
-					check_before(Dateflag);
-				}else if(Year == 'Z'){
-					years = '2019下半年';
+				}else if(Year == 'O'){
+					years = '无效';
 					check_after(Dateflag);
 				}else{
 					layer.msg("序列号有误！请核对对后重新查询");
 					return false;
 				}
-				console.log("年份是："+years);
-				console.log("日期是："+dates);
+				console.log("地区是："+years);
+				console.log("街道是："+dates);
 				layer.open({    
 								  type: 1,
 								  title:'查询结果',
 								  skin: 'layui-layer-rim', //加上边框
 								  area: ['600px', '400px'], //宽高
 								  btn:['关闭'],
-								  content: '您的序列号是：'+ID+'<br/>'+
-								           '该是手机生产地是：'+address+'<br/>'+
-										   '该是手机生产年份是：'+years+'<br/>'+
-										   '该是手机生产日期是：'+dates+'<br/>'+
-										   '提示：如果您查询的激活日期早于生产日期，说明您的手机是官换机！',
+								  content: '您的号是：'+ID+'<br/>'+
+								           '该成员所属市是：'+address+'<br/>'+
+										   '该成员所属区是：'+years+'<br/>'+
+										   '该成员所属街道是：'+dates+'<br/>'+
+										   '提示：如果您查询的结果含有无效，说明是假冒的',
 								});
 			}
 		}
 		  /* 判断的是每一年的下半年的日期 */
 		   function check_before(Dateflag){
 			   if(Dateflag == '1'){
-			   	dates = '1月1日-1月7日';
+			   	dates = '璃港街道';
 			   }else if(Dateflag == '2'){
-			   	dates = '1月8日-1月14日';
+			   	dates = '江北街道';
 			   }else if(Dateflag == '3'){
-			   	dates = '1月15日-1月21日';
+			   	dates = '江东南港';
 			   }else if(Dateflag == '4'){
-			   	dates = '1月22日-1月28日';
+			   	dates = '海东南沙';
 			   }else if(Dateflag == '5'){
-			   	dates = '1月29日-2月4日';
+			   	dates = '南光＆南耀＆璃郊';
 			   }else if(Dateflag == '6'){
-			   	dates = '2月5日-2月11日';
+			   	dates = '新江街道';
 			   }else if(Dateflag == '7'){
-			   	dates = '2月12日-2月18日';
+			   	dates = '沼屿街道';
 			   }else if(Dateflag == '8'){
-			   	dates = '2月19日-2月25日';
+			   	dates = '花街';
 			   }else if(Dateflag == '9'){
-			   	dates = '2月26日-3月1日';
+			   	dates = '无';
 			   }else if(Dateflag == 'C'){
-			   	dates = '3月2日-3月8日';
+			   	dates = '';
 			   }else if(Dateflag == 'D'){
-			   	dates = '3月9日-3月15日';
+			   	dates = '';
 			   }else if(Dateflag == 'F'){
-			   	dates = '3月16日-3月22日';
+			   	dates = '';
 			   }else if(Dateflag == 'G'){
-			   	dates = '3月23日-3月29日';
+			   	dates = '';
 			   }else if(Dateflag == 'H'){
-			   	dates = '4月30日-4月6日';
+			   	dates = '';
 			   }else if(Dateflag == 'J'){
-			   	dates = '4月7日-4月13日';
+			   	dates = '';
 			   }else if(Dateflag == 'K'){
-			   	dates = '4月14日-4月20日';
+			   	dates = '';
 			   }else if(Dateflag == 'L'){
-			   	dates = '4月21日-4月27日';
+			   	dates = '';
 			   }else if(Dateflag == 'M'){
-			   	dates = '4月28日-5月3日';
+			   	dates = '';
 			   }else if(Dateflag == 'N'){
-			   	dates = '5月4日-5月10日';
+			   	dates = '';
 			   }else if(Dateflag == 'P'){
-			   	dates = '5月11日-5月17日';
+			   	dates = '';
 			   }else if(Dateflag == 'Q'){
-			   	dates = '5月18日-5月24日';
+			   	dates = '';
 			   }else if(Dateflag == 'R'){
-			   	dates = '5月25日-6月1日';
+			   	dates = '';
 			   }else if(Dateflag == 'T'){
-			   	dates = '6月2日-6月8日';
+			   	dates = '';
 			   }else if(Dateflag == 'V'){
-			   	dates = '6月9日-6月15日';
+			   	dates = '';
 			   }else if(Dateflag == 'W'){
-			   	dates = '6月16日-6月22日';
+			   	dates = '';
 			   }else if(Dateflag == 'X'){
-			   	dates = '6月23日-6月29日';
+			   	dates = '';
 			   }else if(Dateflag == 'Y'){
-			   	dates = '6月30日';
+			   	dates = '';
 			   }else{
-			   	layer.msg("序列号有误！请核对对后重新查询");
+			   	layer.msg("有误！请核对后重新查询");
 			   	return false;
 			   }
 		   }
 		/* 判断的是下半年具体日期 */
 		  function check_after(Dateflag){
 			  if(Dateflag == '1'){
-					dates = '7月1日-7月7日';
+					dates = '';
 				}else if(Dateflag == '2'){
-					dates = '7月8日-7月14日';
+					dates = '';
 				}else if(Dateflag == '3'){
-					dates = '7月15日-7月21日';
+					dates = '';
 				}else if(Dateflag == '4'){
-					dates = '7月22日-7月28日';
+					dates = '';
 				}else if(Dateflag == '5'){
-					dates = '7月29日-8月4日';
+					dates = '';
 				}else if(Dateflag == '6'){
-					dates = '8月5日-8月11日';
+					dates = '';
 				}else if(Dateflag == '7'){
-					dates = '8月12日-8月18日';
+					dates = '';
 				}else if(Dateflag == '8'){
-					dates = '8月19日-8月25日';
+					dates = '';
 				}else if(Dateflag == '9'){
-					dates = '8月26日-9月1日';
+					dates = '';
 				}else if(Dateflag == 'C'){
-					dates = '9月2日-9月8日';
+					dates = '';
 				}else if(Dateflag == 'D'){
-					dates = '9月9日-9月15日';
+					dates = '';
 				}else if(Dateflag == 'F'){
-					dates = '9月16日-9月22日';
+					dates = '';
 				}else if(Dateflag == 'G'){
-					dates = '9月23日-9月29日';
+					dates = '';
 				}else if(Dateflag == 'H'){
-					dates = '9月30日-10月6日';
+					dates = '';
 				}else if(Dateflag == 'J'){
-					dates = '10月7日-10月13日';
+					dates = '';
 				}else if(Dateflag == 'K'){
-					dates = '10月14日-10月20日';
+					dates = '';
 				}else if(Dateflag == 'L'){
-					dates = '10月21日-10月27日';
+					dates = '';
 				}else if(Dateflag == 'M'){
-					dates = '10月28日-11月3日';
+					dates = '';
 				}else if(Dateflag == 'N'){
-					dates = '11月4日-11月10日';
+					dates = '';
 				}else if(Dateflag == 'P'){
-					dates = '11月11日-11月17日';
+					dates = '';
 				}else if(Dateflag == 'Q'){
-					dates = '11月18日-11月24日';
+					dates = '';
 				}else if(Dateflag == 'R'){
-					dates = '11月25日-12月1日';
+					dates = '';
 				}else if(Dateflag == 'T'){
-					dates = '12月2日-12月8日';
+					dates = '';
 				}else if(Dateflag == 'V'){
-					dates = '12月9日-12月15日';
+					dates = '';
 				}else if(Dateflag == 'W'){
-					dates = '12月16日-12月22日';
+					dates = '';
 				}else if(Dateflag == 'X'){
-					dates = '12月23日-12月29日';
+					dates = '';
 				}else if(Dateflag == 'Y'){
-					dates = '12月30日-12月31日';
+					dates = ';
 				}else{
-					layer.msg("序列号有误！请核对对后重新查询");
+					layer.msg("有误！请核对后重新查询");
 					return false;
 				}
 		  }
@@ -395,28 +397,11 @@
 		  function apple_info(){
 			layer.open({    
 							type: 1,
-							title:'苹果全系类产品',
+							title:'',
 							skin: 'layui-layer-rim', //加上边框
 							area: ['600px', '400px'], //宽高
 							btn:['关闭'],
-							content:'型号：IPHONE第一代，发布日期：2007年1月9日<hr><br/>'+
-									'型号：3G，发布日期：2008年06月10日<hr><br/>'+
-									'型号：3GS，发布日期：2009年6月9日<hr><br/>'+
-									'型号：4，发布日期：2010年6月8日<hr><br/>'+
-									'型号：4S，发布日期：2011年10月04日<hr><br/>'+
-									'型号：5，发布日期：2012年9月13日<hr><br/>'+
-									'型号：5C，发布日期：2013年9月10日<hr><br/>'+
-									'型号：5S，发布日期：2013年9月10日<hr><br/>'+
-									'型号：6，发布日期：2014年9月10日<hr><br/>'+
-									'型号：6P，发布日期：2014年9月10日<hr><br/>'+
-									'型号：6S，发布日期：2015年9月10日<hr><br/>'+
-									'型号：6SP，发布日期：2015年9月10日<hr><br/>'+
-									'型号：7，发布日期：2016年9月8日<hr><br/>'+
-									'型号：7P，发布日期：2016年9月8日<hr><br/>'+
-									'型号：8，发布日期：2017年9月13日<hr><br/>'+
-									'型号：8P，发布日期：2017年9月13日<hr><br/>'+
-									'型号：X，发布日期：2017年9月13日<hr><br/>'+
-									'官方网址：<a href="https://www.apple.com/cn//?afid=p238%7C1dxLB2Qwz-dc_mtid_18707vxu38484_pcrid_16834665582_&cid=aos-cn-kwba-brand" target="_blank">点击进入<a/>',
+							content:'',
 							});
 			} 
 			function reload(){
