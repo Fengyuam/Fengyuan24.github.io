@@ -1,6 +1,6 @@
-# 欢迎来到 Kaosan 网站
+# 欢迎来到 SKYEX 网站
 
-这个项目是 Kaosan 网站的源代码仓库。Fengyuan24 网站是一个基于基本HTML构建的个人网站，它托管在 GitHub Pages 上。
+这个项目是 SKYEX 网站的源代码仓库。SKYEX 网站是一个基于基本HTML构建的网站，它托管在 GitHub Pages 上。
 
 ## 仓库内容
 
